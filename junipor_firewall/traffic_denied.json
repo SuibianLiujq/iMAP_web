@@ -1,0 +1,44 @@
+[
+  {
+    "_id": "0b47a060-5351-11e8-ab7c-79fdfadfa920",
+    "_type": "visualization",
+    "_source": {
+      "title": "https traffic denied",
+      "visState": "{\"title\":\"https traffic denied\",\"type\":\"table\",\"params\":{\"perPage\":10,\"showMeticsAtAllLevels\":false,\"showPartialRows\":false,\"showTotal\":false,\"sort\":{\"columnIndex\":null,\"direction\":null},\"totalFunc\":\"sum\"},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{\"customLabel\":\"数量\"}},{\"id\":\"3\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"sip\",\"size\":10,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"源ip\"}},{\"id\":\"5\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"service\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"协议\"}},{\"id\":\"8\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"dport\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"目的端口\"}},{\"id\":\"11\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"dip\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"目的ip\"}},{\"id\":\"4\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"action\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"请求应答\"}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"reason\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"原因\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{\"vis\":{\"params\":{\"sort\":{\"columnIndex\":null,\"direction\":null}}}}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"junipor_syslog-*\",\"query\":{\"query_string\":{\"query\":\"action:deny AND service:https\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "d44438d0-5350-11e8-ab7c-79fdfadfa920",
+    "_type": "visualization",
+    "_source": {
+      "title": "http traffic denied",
+      "visState": "{\"title\":\"http traffic denied\",\"type\":\"table\",\"params\":{\"perPage\":10,\"showMeticsAtAllLevels\":false,\"showPartialRows\":false,\"showTotal\":false,\"sort\":{\"columnIndex\":null,\"direction\":null},\"totalFunc\":\"sum\"},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{\"customLabel\":\"数量\"}},{\"id\":\"3\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"sip\",\"size\":10,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"源ip\"}},{\"id\":\"5\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"service\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"协议\"}},{\"id\":\"8\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"dport\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"目的端口\"}},{\"id\":\"9\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"dip\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"目的ip\"}},{\"id\":\"4\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"action\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"请求应答\"}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"reason\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"原因\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{\"vis\":{\"params\":{\"sort\":{\"columnIndex\":null,\"direction\":null}}}}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"junipor_syslog-*\",\"query\":{\"query_string\":{\"query\":\"action:deny AND service:http\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "6e739dc0-5350-11e8-ab7c-79fdfadfa920",
+    "_type": "visualization",
+    "_source": {
+      "title": "dns traffic denied",
+      "visState": "{\"title\":\"dns traffic denied\",\"type\":\"table\",\"params\":{\"perPage\":10,\"showMeticsAtAllLevels\":false,\"showPartialRows\":false,\"showTotal\":false,\"sort\":{\"columnIndex\":null,\"direction\":null},\"totalFunc\":\"sum\"},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{\"customLabel\":\"数量\"}},{\"id\":\"3\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"sip\",\"size\":10,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"源ip\"}},{\"id\":\"5\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"service\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"协议\"}},{\"id\":\"8\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"dport\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"目的端口\"}},{\"id\":\"9\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"dip\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"目的ip\"}},{\"id\":\"4\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"action\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"请求应答\"}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"reason\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"原因\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{\"vis\":{\"params\":{\"sort\":{\"columnIndex\":null,\"direction\":null}}}}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"junipor_syslog-*\",\"query\":{\"query_string\":{\"query\":\"action:deny AND service:dns\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  }
+]

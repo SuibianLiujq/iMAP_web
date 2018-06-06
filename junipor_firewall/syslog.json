@@ -1,0 +1,30 @@
+[
+  {
+    "_id": "3a90afb0-5cca-11e8-b89f-59847fb640a0",
+    "_type": "visualization",
+    "_source": {
+      "title": "syslog_analysis",
+      "visState": "{\"title\":\"syslog_analysis\",\"type\":\"prelert_swimlane\",\"params\":{\"interval\":{\"display\":\"Auto\",\"val\":\"auto\"},\"lowThreshold\":0,\"warningThreshold\":3,\"minorThreshold\":25,\"majorThreshold\":50,\"criticalThreshold\":75,\"lowThresholdColor\":\"#d2e9f7\",\"warningThresholdColor\":\"#8bc8fb\",\"minorThresholdColor\":\"#ffdd00\",\"majorThresholdColor\":\"#ff7e00\",\"criticalThresholdColor\":\"#fe5050\",\"tooltipNumberFormat\":\"0.0\",\"showLegend\":true},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"viewBy\",\"params\":{\"field\":\"level\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"_term\"}},{\"id\":\"2\",\"enabled\":true,\"type\":\"date_histogram\",\"schema\":\"timeSplit\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"auto\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"junipor_syslog-*\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "5bad9860-5ccb-11e8-9aa6-3fbc89080795",
+    "_type": "visualization",
+    "_source": {
+      "title": "syslog_analysis",
+      "visState": "{\"title\":\"syslog_analysis\",\"type\":\"tagcloud\",\"params\":{\"scale\":\"linear\",\"orientation\":\"single\",\"minFontSize\":18,\"maxFontSize\":72},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"level\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"junipor_syslog-*\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  }
+]

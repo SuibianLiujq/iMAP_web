@@ -1,0 +1,142 @@
+[
+  {
+    "_id": "a78a8990-5330-11e8-8a0d-1985eaf3dfba",
+    "_type": "visualization",
+    "_source": {
+      "title": "Log level distribution",
+      "visState": "{\"aggs\":[{\"enabled\":true,\"id\":\"1\",\"params\":{\"customLabel\":\"数量\"},\"schema\":\"metric\",\"type\":\"count\"},{\"enabled\":true,\"id\":\"2\",\"params\":{\"customLabel\":\"等级\",\"field\":\"level\",\"order\":\"desc\",\"orderBy\":\"1\",\"size\":5},\"schema\":\"bucket\",\"type\":\"terms\"}],\"listeners\":{},\"params\":{\"perPage\":10,\"showMeticsAtAllLevels\":false,\"showPartialRows\":false,\"showTotal\":false,\"sort\":{\"columnIndex\":null,\"direction\":null},\"totalFunc\":\"sum\"},\"title\":\"Log level distribution\",\"type\":\"table\"}",
+      "uiStateJSON": "{\"vis\":{\"params\":{\"sort\":{\"columnIndex\":null,\"direction\":null}}}}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"junipor_syslog-*\",\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"*\"}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "17e44330-534e-11e8-ab7c-79fdfadfa920",
+    "_type": "visualization",
+    "_source": {
+      "title": "distribution of deny-dport over time",
+      "visState": "{\"title\":\"distribution of deny-dport over time\",\"type\":\"histogram\",\"params\":{\"addLegend\":true,\"addTimeMarker\":false,\"addTooltip\":true,\"categoryAxes\":[{\"id\":\"CategoryAxis-1\",\"labels\":{\"show\":true,\"truncate\":100},\"position\":\"bottom\",\"scale\":{\"type\":\"linear\"},\"show\":true,\"style\":{},\"title\":{\"text\":\"时间\"},\"type\":\"category\"}],\"defaultYExtents\":false,\"drawLinesBetweenPoints\":true,\"grid\":{\"categoryLines\":false,\"style\":{\"color\":\"#eee\"}},\"interpolate\":\"linear\",\"legendPosition\":\"right\",\"radiusRatio\":9,\"scale\":\"linear\",\"seriesParams\":[{\"data\":{\"id\":\"1\",\"label\":\"Count\"},\"drawLinesBetweenPoints\":true,\"mode\":\"stacked\",\"show\":\"true\",\"showCircles\":true,\"type\":\"histogram\",\"valueAxis\":\"ValueAxis-1\"}],\"setYExtents\":false,\"showCircles\":true,\"times\":[],\"valueAxes\":[{\"id\":\"ValueAxis-1\",\"labels\":{\"filter\":false,\"rotate\":0,\"show\":true,\"truncate\":100},\"name\":\"LeftAxis-1\",\"position\":\"left\",\"scale\":{\"mode\":\"normal\",\"type\":\"linear\"},\"show\":true,\"style\":{},\"title\":{},\"type\":\"value\"}]},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"custom\",\"customInterval\":\"5m\",\"min_doc_count\":1,\"extended_bounds\":{},\"customLabel\":\"时间\"}},{\"id\":\"3\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"dport\",\"size\":10,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"目的端口\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"junipor_syslog-*\",\"query\":{\"query_string\":{\"query\":\"action:deny\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "89002b40-5332-11e8-8a0d-1985eaf3dfba",
+    "_type": "visualization",
+    "_source": {
+      "title": "distribution of dport 445",
+      "visState": "{\"title\":\"distribution of dport 445\",\"type\":\"table\",\"params\":{\"perPage\":10,\"showPartialRows\":false,\"showMeticsAtAllLevels\":false,\"sort\":{\"columnIndex\":null,\"direction\":null},\"showTotal\":false,\"totalFunc\":\"sum\"},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{\"customLabel\":\"数量\"}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"sip\",\"size\":10,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"源ip\"}},{\"id\":\"3\",\"enabled\":true,\"type\":\"cardinality\",\"schema\":\"metric\",\"params\":{\"field\":\"dip\",\"customLabel\":\"不同目的ip连接数\"}},{\"id\":\"4\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"action\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"请求应答\"}},{\"id\":\"5\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"service\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"协议\"}},{\"id\":\"6\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"dport\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"目的端口\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{\"vis\":{\"params\":{\"sort\":{\"columnIndex\":null,\"direction\":null}}}}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"junipor_syslog-*\",\"query\":{\"query_string\":{\"query\":\"dport:445 AND (sip:[10.0.0.0 TO 10.255.255.255] OR sip:[172.16.0.0 TO 172.31.255.255] OR sip:[192.168.0.0 TO 192.168.255.255]) AND action:deny\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "5ca64d70-534d-11e8-ab7c-79fdfadfa920",
+    "_type": "visualization",
+    "_source": {
+      "title": "distribution of information log",
+      "visState": "{\"title\":\"distribution of information log\",\"type\":\"table\",\"params\":{\"perPage\":10,\"showMeticsAtAllLevels\":false,\"showPartialRows\":false,\"showTotal\":false,\"sort\":{\"columnIndex\":null,\"direction\":null},\"totalFunc\":\"sum\"},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{\"customLabel\":\"数量\"}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"level\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"等级\"}},{\"id\":\"3\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"log_type\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"日志类型\"}},{\"id\":\"4\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"event\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"事件\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{\"vis\":{\"params\":{\"sort\":{\"columnIndex\":null,\"direction\":null}}}}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"junipor_syslog-*\",\"query\":{\"query_string\":{\"query\":\"level:information\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "fcedc160-534c-11e8-ab7c-79fdfadfa920",
+    "_type": "visualization",
+    "_source": {
+      "title": "distribution of notif log",
+      "visState": "{\"title\":\"distribution of notif log\",\"type\":\"table\",\"params\":{\"perPage\":10,\"showPartialRows\":false,\"showMeticsAtAllLevels\":false,\"sort\":{\"columnIndex\":null,\"direction\":null},\"showTotal\":false,\"totalFunc\":\"sum\"},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{\"customLabel\":\"数量\"}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"level\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"等级\"}},{\"id\":\"3\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"log_type\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"日志类型\"}},{\"id\":\"4\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"event\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"事件\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{\"vis\":{\"params\":{\"sort\":{\"columnIndex\":null,\"direction\":null}}}}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"junipor_syslog-*\",\"query\":{\"query_string\":{\"query\":\"level:notification\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "204aa470-534d-11e8-ab7c-79fdfadfa920",
+    "_type": "visualization",
+    "_source": {
+      "title": "distribution of alert log",
+      "visState": "{\"title\":\"distribution of alert log\",\"type\":\"table\",\"params\":{\"perPage\":10,\"showPartialRows\":false,\"showMeticsAtAllLevels\":false,\"sort\":{\"columnIndex\":null,\"direction\":null},\"showTotal\":false,\"totalFunc\":\"sum\"},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{\"customLabel\":\"数量\"}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"level\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"等级\"}},{\"id\":\"3\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"log_type\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"日志类型\"}},{\"id\":\"4\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"event\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"事件\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{\"vis\":{\"params\":{\"sort\":{\"columnIndex\":null,\"direction\":null}}}}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"junipor_syslog-*\",\"query\":{\"query_string\":{\"query\":\"level:alert\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "3fe3a1b0-534d-11e8-ab7c-79fdfadfa920",
+    "_type": "visualization",
+    "_source": {
+      "title": "distribution of critical log",
+      "visState": "{\"title\":\"distribution of critical log\",\"type\":\"table\",\"params\":{\"perPage\":10,\"showMeticsAtAllLevels\":false,\"showPartialRows\":false,\"showTotal\":false,\"sort\":{\"columnIndex\":null,\"direction\":null},\"totalFunc\":\"sum\"},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{\"customLabel\":\"数量\"}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"level\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"等级\"}},{\"id\":\"3\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"log_type\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"日志类型\"}},{\"id\":\"4\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"event\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"事件\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{\"vis\":{\"params\":{\"sort\":{\"columnIndex\":null,\"direction\":null}}}}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"junipor_syslog-*\",\"query\":{\"query_string\":{\"query\":\"level:critical\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "771b5fb0-534d-11e8-ab7c-79fdfadfa920",
+    "_type": "visualization",
+    "_source": {
+      "title": "distribution of warning log",
+      "visState": "{\"title\":\"distribution of warning log\",\"type\":\"table\",\"params\":{\"perPage\":10,\"showMeticsAtAllLevels\":false,\"showPartialRows\":false,\"showTotal\":false,\"sort\":{\"columnIndex\":null,\"direction\":null},\"totalFunc\":\"sum\"},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{\"customLabel\":\"数量\"}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"level\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"等级\"}},{\"id\":\"3\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"log_type\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"日志类型\"}},{\"id\":\"4\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"event\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"事件\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{\"vis\":{\"params\":{\"sort\":{\"columnIndex\":null,\"direction\":null}}}}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"junipor_syslog-*\",\"query\":{\"query_string\":{\"query\":\"level:warning\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "fb2e7970-5331-11e8-8a0d-1985eaf3dfba",
+    "_type": "visualization",
+    "_source": {
+      "title": "distribution of denied dport",
+      "visState": "{\"title\":\"distribution of denied dport\",\"type\":\"pie\",\"params\":{\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"right\",\"isDonut\":false},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{\"customLabel\":\"数量\"}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"dport\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"端口\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"junipor_syslog-*\",\"query\":{\"query_string\":{\"query\":\"action:deny AND (sip:[10.0.0.0 TO 10.255.255.255] OR sip:[172.16.0.0 TO 172.31.255.255] sip:[192.168.0.0 TO 192.168.255.255] )\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "77b61c70-5376-11e8-b0ca-53ab65a5126d",
+    "_type": "visualization",
+    "_source": {
+      "title": "distribution of denied dport-sip",
+      "visState": "{\"title\":\"distribution of denied dport-sip\",\"type\":\"table\",\"params\":{\"perPage\":10,\"showPartialRows\":false,\"showMeticsAtAllLevels\":false,\"sort\":{\"columnIndex\":null,\"direction\":null},\"showTotal\":false,\"totalFunc\":\"sum\"},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{\"customLabel\":\"数量\"}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"dport\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"目的端口\"}},{\"id\":\"3\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"sip\",\"size\":2,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"源ip\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{\"vis\":{\"params\":{\"sort\":{\"columnIndex\":null,\"direction\":null}}}}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"junipor_syslog-*\",\"query\":{\"query_string\":{\"query\":\"action:deny AND (sip:[10.0.0.0 TO 10.255.255.255] OR sip:[172.16.0.0 TO 172.31.255.255] sip:[192.168.0.0 TO 192.168.255.255] )\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  }
+]
