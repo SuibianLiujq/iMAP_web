@@ -1,0 +1,16 @@
+[
+  {
+    "_id": "94fbedd0-6962-11e8-9672-773167516ab6",
+    "_type": "visualization",
+    "_source": {
+      "title": "syslog_distribute",
+      "visState": "{\"title\":\"syslog_distribute\",\"type\":\"prelert_swimlane\",\"params\":{\"interval\":{\"display\":\"Auto\",\"val\":\"auto\"},\"lowThreshold\":0,\"warningThreshold\":3,\"minorThreshold\":25,\"majorThreshold\":50,\"criticalThreshold\":75,\"lowThresholdColor\":\"#d2e9f7\",\"warningThresholdColor\":\"#8bc8fb\",\"minorThresholdColor\":\"#ffdd00\",\"majorThresholdColor\":\"#ff7e00\",\"criticalThresholdColor\":\"#fe5050\",\"tooltipNumberFormat\":\"0.0\",\"showLegend\":true},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"viewBy\",\"params\":{\"field\":\"level\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"_term\"}},{\"id\":\"2\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"3\",\"enabled\":true,\"type\":\"date_histogram\",\"schema\":\"timeSplit\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"auto\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"junipor_syslog-*\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  }
+]
